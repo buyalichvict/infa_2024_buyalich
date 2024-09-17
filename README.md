@@ -1,5 +1,5 @@
 # infa_2024_buyalich
-$ git clone https://github.com/Ivanov/infa_2020_ivanov
+$ git clone https://github.com/Buyalich/infa_2024_buyalich
 Cloning into 'infa_2024_buyalich'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
