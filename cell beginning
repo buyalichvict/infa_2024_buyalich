@@ -1,0 +1,38 @@
+from tkinter import *
+import pygame
+#import jupyter
+
+class Cell():
+    
+def __init __(self, canvas, platform):
+    self.canvas = canvas
+    self.platform = platform
+    
+def touch_platform(self,)
+def main():
+    create_cell()
+    finish = False
+    while not finish:
+        print()
+        
+window = wd()
+window.tytle("клетка")
+window.resizeble(0,0)
+window.wm_attributes()
+canvas = Canvas(window, width=500, height=400)
+canvas.pack()
+        
+ class niche:
+     name = ""
+    niche_transcription = []
+    niche_apottosis = []
+    nich_necrosis = []
+   nich_proliferation = []
+
+def way():
+    way_dye():
+        if niche.len() > 50:
+            finish = True
+    way_prolify():
+    way_answer():
+    way_signal = []
