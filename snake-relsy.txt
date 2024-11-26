@@ -1,0 +1,60 @@
+import pygame
+from pygame.draw import *
+import time
+import random
+pygame.init()
+
+background = (100, 100, 150)
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 400
+game_display = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.display.set_caption('')
+
+head = pygame.transform.scale(pygame.image.load('head.png').convert_alpha(), (100, 100))
+head_angle = 0
+head_rotation_speed = 5
+
+relsy = []
+for i in range (2):
+    relsy.append(pygame.image.load(f'relsy.png').convert_alpha())
+    
+relsy_frame = 0
+relsy_frame_rate = 5
+relsy_frame_timer = 0
+head_x = 0
+head_y = WINDOW_HEIGHT // 2 - head.get_height()// 4
+relsy_x = -relsy[0].get_size()[0]
+relsy_y = WINDOW_HEIGHT //2 -relsy[0].get_size()[1]//2
+movement_speed = 7
+clock = pygame.time.Clock()
+
+game_exit = False
+
+while not game_exit:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_exit = True
+            
+    head_angle += head_rotation_speed
+    if head_angle>= 360:
+            head_angle = 0
+    rotated_head = pygame.transform.rotate(head, head_angle)
+        
+    head_x += movement_speed
+    if head_x > WINDOW_WIDTH:
+        head_x = 0 - relsy[0].get_width()
+    relsy_x += movement_speed
+    if relsy_x > WINDOW_WIDTH:
+            relsy_x = 0 - relsy[0].get_width()
+            
+    relsy_frame_timer += clock.tick(60)
+    if relsy_frame_timer >= 1000 / relsy_frame_rate:
+        relsy_frame_timer -= 1000 / relsy_frame_rate
+        relsy_frame = (relsy_frame +1) % len(relsy)
+
+    game_display.fill(background)
+    game_display.blit (rotated_head, (head_x, head_y))
+    game_display.blit(relsy[relsy_frame], (relsy_x, relsy_y))
+    pygame.display.update()
+
+pygame.quit
